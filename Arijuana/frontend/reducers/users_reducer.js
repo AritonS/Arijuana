@@ -1,7 +1,7 @@
 import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_ALL_USERS } from "../actions/user_actions";
 
-const userReducer = (oldState = {}, action) => {
+const usersReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
     let nextState = Object.assign({}, oldState);
 
@@ -17,3 +17,5 @@ const userReducer = (oldState = {}, action) => {
             return oldState;
     }
 }
+
+export default usersReducer;
