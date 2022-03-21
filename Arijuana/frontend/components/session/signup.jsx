@@ -1,45 +1,55 @@
-class Login extends React.Component {
+class Signup extends React.Component {
     constructor(props) {
-        super(props)
-        thiis.state = {
+        super(props);
+        this.state = {
             username: '',
+            email: '',
             password: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleInput(type) {
-        return (e) => {
-            this.setState({ [type]: e.target.value})
+        return(e) => {
+            this.setState({ [type]: e.target.value })
         }
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
-        {<Redirect to={`/user/${currentUser.id}`}/>}
+        this.props.createNewUser(this.state)
     }
 
     render() {
         return(
             <div className='session-form'>
-                <h2>Log In</h2>
+                <h2>Sign Up</h2>
                 <form>
                     <label>
                         <input 
                         type="text"
                         placeholder='Username'
-                        onChange={this.handleInput('username')} 
+                        value={this.state.username}
+                        onChange={this.handleInput('username')}
+                        />
+                    </label>
+                    <label>
+                        <input 
+                        type="text"
+                        placeholder='E-Mail'
+                        value={this.state.email}
+                        onChange={this.handleInput('email')}
                         />
                     </label>
                     <label>
                         <input 
                         type="password"
                         placeholder='Password'
+                        value={thiis.state.password}
                         onChange={this.handleInput('password')} 
                         />
                     </label>
-                    <button onClick={this.handleSubmit}>Log In</button>
+                    <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
             </div>
         )
@@ -47,4 +57,4 @@ class Login extends React.Component {
 
 }
 
-export default Login;
+export default Signup;
